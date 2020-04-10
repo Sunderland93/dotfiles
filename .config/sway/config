@@ -1,0 +1,258 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Terminal
+set $term kitty
+# Application launcher
+set $menu wofi --show run --allow-images
+# File manager
+set $filer pcmanfm-qt
+
+# Window borders
+default_border pixel 3
+smart_borders on
+smart_gaps on
+gaps inner 8
+
+# Autostart
+exec mako
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# Default workspaces for common programms
+assign [app_id="firefox"] workspace 2
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Input configuration
+#
+# Keyboard layout
+  input * {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+}
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym --to-code $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+    
+    # Take a screenshot (whole screen)
+    bindsym Print exec grim ~/Pictures/screenshot-"$(date +%s)".png
+    
+    # Take a screenshot of selected region
+    bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-"$(date +%s)".png
+    
+    # Take a screenshot of focused window
+    bindsym $mod+Shift+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/Pictures/screenshot-"$(date +%s)".png
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m \
+        'You pressed the exit shortcut. What do you want?' \
+        -b 'Logout' 'swaymsg exit' \
+        -b 'Sleep' 'systemctl suspend' \
+        -b 'Reboot' 'systemctl reboot' \
+        -b 'Poweroff' 'systemctl poweroff'
+    
+# Default window rules
+#
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym --to-code $mod+b splith
+    bindsym --to-code $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+ set $grey       #323232
+ set $lightgreen #1abc9c
+ set $white      #eff0f1
+ set $bg         #31363b
+ set $black      #900000
+ set $red        #CB4B16
+
+ # Sway theme
+ # class                   border     backgr.    text    indic.     child_border
+   client.focused          $lightgreen $bg        $white  $lightgreen $lightgreen
+   client.focused_inactive $bg        $bg        $white  $bg        $bg
+   client.unfocused        $bg        $bg        $white  $bg        $bg
+   client.urgent           $red       $red       $white  $black     $black
+
+#
+# Status Bar:
+#
+bar {
+
+   position top
+
+   status_command i3blocks
+
+   colors {
+       background #31363b
+#                          border  backgr. text
+        focused_workspace  #F9FAF9 #3daee9 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #283339 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
+
+ set $grey       #323232
+ set $lightblue #3daee9
+ set $white      #eff0f1
+ set $bg         #31363b
+ set $black      #900000
+ set $red        #CB4B16
+
+ # Sway theme
+ # class                   border     backgr.    text    indic.     child_border
+   client.focused          $lightblue $bg        $white  $lightblue $lightblue
+   client.focused_inactive $bg        $bg        $white  $bg        $bg
+   client.unfocused        $bg        $bg        $white  $bg        $bg
+   client.urgent           $red       $red       $white  $black     $black
+
+include /etc/sway/config.d/*

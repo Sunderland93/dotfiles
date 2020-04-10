@@ -1,0 +1,82 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "battery", "tray", "clock#time", "clock#date"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}: {icon}",
+    "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      }
+    },
+    "custom/weather": {
+		"format": "{}",
+		"interval": 18000,
+		"exec": "~/.config/waybar/modules/weather",
+		"exec-if": "ping openweathermap.org -c1",
+		"tooltip": "false"
+    },
+    "custom/keyboard-layout": {
+        "exec": "~/.config/waybar/kblayout",
+        "format": "   {}"
+    },
+    "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click-right": "pavucontrol"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "  {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "  {usage}% ({load})", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+          }
+    },
+    "memory": {
+    "interval": 30,
+    "format": "  {used:0.1f}G/{total:0.1f}G"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+}

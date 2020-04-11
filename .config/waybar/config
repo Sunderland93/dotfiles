@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "battery", "tray", "clock#time", "clock#date"],
+    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "battery", "clock#time", "clock#date", "tray"],
     "sway/window": {
         "max-length": 50
     },
@@ -29,7 +29,7 @@
 		"tooltip": "false"
     },
     "custom/keyboard-layout": {
-        "exec": "~/.config/waybar/kblayout",
+        "exec": "~/.config/waybar/modules/kblayout",
         "format": "   {}"
     },
     "pulseaudio": {

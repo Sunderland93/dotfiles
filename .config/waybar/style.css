@@ -15,17 +15,24 @@
     font-size: 13px;
 }
 
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
 #workspaces button {
+    /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #ffffff;
+    color: #888888;
 }
 
 #workspaces button.focused {
     border-bottom: 3px solid #3daee9;
+    border-color: #3daee9;
     color: white;
-    background-color: #31363b;
+    background-color: #285577;
 }
 
 #workspaces button.urgent {
@@ -33,20 +40,33 @@
     color: #c9545d;
 }
 
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#custom-keyboard-layout,
 #custom-weather,
 #clock,
 #battery,
 #cpu,
 #memory,
+#temperature,
 #network,
 #pulseaudio,
-#custom-media,
-#custom-keyboard-layout,
 #tray,
 #mode,
-#idle_inhibitor,
+#idle_inhibitor {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 4px;
+}
 
 #custom-weather {
+    border-bottom: 3px solid #3daee9;
+}
+
+#custom-keyboard-layout {
     border-bottom: 3px solid #3daee9;
 }
 
@@ -98,7 +118,7 @@ label:focus {
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    border-bottom: 3px solid #3daee9;
 }
 
 #pulseaudio {
@@ -109,18 +129,16 @@ label:focus {
     border-bottom: 3px solid #3daee9;
 }
 
-#custom-keyboard-layout {
+#temperature {
     border-bottom: 3px solid #3daee9;
 }
 
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
+#temperature.critical {
+    background-color: #eb4d4b;
 }
 
 #tray {
-    border-bottom: 3px solid #3daee9;
+    
 }
 
 #idle_inhibitor {
@@ -130,4 +148,21 @@ label:focus {
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
     color: #2d3436;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
 }

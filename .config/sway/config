@@ -6,6 +6,10 @@ set $down j
 set $up k
 set $right l
 
+### Include theme
+#
+include themes/breeze-sway
+
 # Terminal
 set $term kitty
 # Application launcher
@@ -14,12 +18,6 @@ set $menu wofi --show run --allow-images
 set $filer pcmanfm-qt
 #Firefox
 set $browser firefox
-
-# Window borders
-default_border pixel 3
-smart_borders on
-smart_gaps on
-gaps inner 8
 
 # Autostart
 exec mako
@@ -30,16 +28,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Изображения/Backgrounds/2.jpg fill
-
-seat seat0 xcursor_theme "breeze_cursors"
-
-set $gnome-schema org.gnome.desktop.interface
-
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Breeze'
-    gsettings set $gnome-schema icon-theme 'Breeze-GTK'
-    gsettings set $gnome-schema cursor-theme 'breeze_cursors'
-}
 
 # Default workspaces for common programms
 assign [app_id="firefox"] workspace 2
@@ -231,20 +219,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
- set $grey       #323232
- set $lightgreen #1abc9c
- set $white      #eff0f1
- set $bg         #31363b
- set $black      #900000
- set $red        #CB4B16
-
- # Sway theme
- # class                   border     backgr.    text    indic.     child_border
-   client.focused          $lightgreen $bg        $white  $lightgreen $lightgreen
-   client.focused_inactive $bg        $bg        $white  $bg        $bg
-   client.unfocused        $bg        $bg        $white  $bg        $bg
-   client.urgent           $red       $red       $white  $black     $black
-
 #
 # Status Bar:
 #
@@ -252,19 +226,5 @@ bar {
 
    swaybar_command waybar
 }
-
- set $grey       #323232
- set $lightblue #3daee9
- set $white      #eff0f1
- set $bg         #31363b
- set $black      #900000
- set $red        #CB4B16
-
- # Sway theme
- # class                   border     backgr.    text    indic.     child_border
-   client.focused          $lightblue $bg        $white  $lightblue $lightblue
-   client.focused_inactive $bg        $bg        $white  $bg        $bg
-   client.unfocused        $bg        $bg        $white  $bg        $bg
-   client.urgent           $red       $red       $white  $black     $black
 
 include /etc/sway/config.d/*

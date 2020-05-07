@@ -16,18 +16,13 @@ set $term kitty
 set $menu wofi --show run --allow-images
 # File manager
 set $filer pcmanfm-qt
-#Firefox
+# Firefox
 set $browser firefox
-
-# Autostart
-exec mako
-#exec --no-startup-id dunst
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Изображения/Backgrounds/2.jpg fill
+# output * bg ~/Изображения/Backgrounds/2.jpg fill
 
 # Default workspaces for common programms
 assign [app_id="firefox"] workspace 2
@@ -226,5 +221,10 @@ bar {
 
    swaybar_command waybar
 }
+
+# Autostart
+exec mako
+#exec --no-startup-id dunst
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*

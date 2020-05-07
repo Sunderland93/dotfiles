@@ -5,12 +5,15 @@ set $left h
 set $down j
 set $up k
 set $right l
+
 # Terminal
 set $term kitty
 # Application launcher
 set $menu wofi --show run --allow-images
 # File manager
 set $filer pcmanfm-qt
+#Firefox
+set $browser firefox
 
 # Window borders
 default_border pixel 3
@@ -19,15 +22,28 @@ smart_gaps on
 gaps inner 8
 
 # Autostart
-#exec mako
-exec --no-startup-id dunst
+exec mako
+#exec --no-startup-id dunst
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/wallpapers/Path/contents/images/1920x1080.jpg fill
+output * bg ~/Изображения/Backgrounds/2.jpg fill
+
+seat seat0 xcursor_theme "breeze_cursors"
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Breeze'
+    gsettings set $gnome-schema icon-theme 'Breeze-GTK'
+    gsettings set $gnome-schema cursor-theme 'breeze_cursors'
+}
 
 # Default workspaces for common programms
 assign [app_id="firefox"] workspace 2
+assign [app_id="pcmanfm-qt"] workspace 3
 
 #
 # Example configuration:
@@ -59,6 +75,12 @@ assign [app_id="firefox"] workspace 2
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Start file manager
+    bindsym $mod+p exec $filer
+
+    # Start Firefox
+    bindsym $mod+m exec firefox
     
     # Take a screenshot (whole screen)
     bindsym Print exec grim ~/Pictures/screenshot-"$(date +%s)".png
@@ -93,6 +115,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
+for_window [app_id="lximage-qt"] floating enable
 
 
 #

@@ -9,8 +9,8 @@ Used applications:
 * wf-recorder (screencasting)
 * grim (screenshot tool)
 * slurp (select region for grim or wf-recorder)
-* Dunst (if Marko not working/available)
-* PCmanFM-Qt (optionaly)
+* Dunst (if Mako not working/available)
+* PCmanFM-Qt (file-manager)
 * Kitty (terminal emulator)
 * Firefox (because of full Wayland support :) )
 

@@ -1,0 +1,13 @@
+## Default Mako Config
+ignore-timeout=1
+default-timeout=7777
+anchor=top-center
+max-visible=7
+
+font=Noto Sans 9
+border-size=3
+background-color=#31363b
+border-color=#3daee9
+margin=10
+padding=15
+width=600

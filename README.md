@@ -1,1 +1,25 @@
 My Sway config 
+
+
+
+Used applications:
+
+* Waybar (panel)
+* Mako (notifications)
+* wf-recorder (screencasting)
+* grim (screenshot tool)
+* slurp (select region for grim or wf-recorder)
+* Dunst (if Marko not working/available)
+* PCmanFM-Qt (optionaly)
+* Kitty (terminal emulator)
+* Firefox (because of full Wayland support :) )
+
+For use Breeze-Sway theme you need these components on your system:
+
+* Breeze
+* Breeze-GTK
+* Fonts Awesome
+* xsettingsd
+* jq
+* bc
+* qt5ct

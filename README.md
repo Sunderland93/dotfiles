@@ -23,3 +23,5 @@ For use Breeze-Sway theme you need these components on your system:
 * jq
 * bc
 * qt5ct
+
+**Note for Arch Linux users:** some components, like `wf-recorder` or `ansiweather` (for weather showcasting) only available in **AUR**. Also you have to install `otf-awesome-font` and `awesome-terminal-fonts`, as well as Noto Sans.

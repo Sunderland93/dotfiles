@@ -7,7 +7,7 @@ export EDITOR=nano
 export BROWSER=firefox
 
 #Qt
-export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 #EFL

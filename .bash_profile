@@ -18,7 +18,7 @@ export ELM_ACCEL="gl"
 export MOZ_ENABLE_WAYLAND=1
 
 #SDL
-export SDL_VIDEODRIVER=wayland
+#export SDL_VIDEODRIVER=wayland
 
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

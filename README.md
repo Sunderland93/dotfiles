@@ -29,4 +29,6 @@ Installation on Debian Bullseye/Ubuntu 20.04 and newer:
 `sudo apt install waybar mako-notifier wf-recorder grim slurp pcmanfm-qt kitty xsettingsd
 jq bc qt5ct fonts-font-awesome breeze breeze-gtk-theme polkit1-auth-agent ansiweather`
 
+If you want to use screencasting and screensharing via PipeWire, you need to install `xdg-desktop-portal-wlr` package.
+
 **Note for Arch Linux users:** some components, like `wf-recorder` or `ansiweather` (for weather showcasting) is only available in **AUR**. Also you have to install `otf-awesome-font` and `awesome-terminal-fonts`, as well as Noto Sans.

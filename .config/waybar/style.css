@@ -113,6 +113,10 @@ label:focus {
     border-bottom: 3px solid #3daee9;
 }
 
+#custom-gpu-usage {
+    border-bottom: 3px solid #3daee9;
+}
+
 #network {
     border-bottom: 3px solid #3daee9;
 }

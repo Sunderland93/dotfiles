@@ -3,11 +3,7 @@
     "position": "top",
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "battery", "clock#time", "clock#date", "tray"],
-    "sway/window": {
-        "max-length": 50
-    },
+    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "custom/gpu-usage", "battery", "network", "clock#time", "clock#date", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -34,7 +30,6 @@
     },
     "pulseaudio": {
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
     "format-muted": "",
     "format-icons": {
         "headphone": "",
@@ -52,10 +47,22 @@
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""]
     },
+    "network": {
+	"interface": "enp2s0",
+	"format": "{ifname}",
+	"format-ethernet": "{ifname} ",
+	"format-disconnected": "",
+	"tooltip-format": "{ifname}",
+	"tooltip-format-ethernet": "{ifname} ",
+	"tooltip-format-disconnected": "Disconnected",
+	"max-length": 100,
+	"on-click": "nm-connection-editor"
+    },
     "clock#time": {
         "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "tooltip": false
+        "format": "{:%H:%M}",
+        "tooltip": false,
+	"max-lenght": 25
     },
 
     "clock#date": {
@@ -78,5 +85,11 @@
     "tray": {
         "icon-size": 21,
         "spacing": 10
-    }
+    },
+    "custom/gpu-usage": {
+	"exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
+	"format": "GPU: {}%",
+	"return-type": "",
+	"interval": 1
+}
 }

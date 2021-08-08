@@ -40,7 +40,7 @@ assign [app_id="pcmanfm-qt"] workspace 3
 # Keyboard layout
   input * {
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle
+    xkb_options grp:caps_toggle
 }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -99,6 +99,7 @@ for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [app_id="lximage-qt"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
 
 
 #

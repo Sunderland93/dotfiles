@@ -1,6 +1,6 @@
 My Sway config 
 
-![Sway Screenshot](https://github.com/Sunderland93/dotfiles-sway/blob/master/screenshot.png)
+![Sway Screenshot](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot.png)
 
 Used applications:
 

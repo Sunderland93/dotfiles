@@ -10,4 +10,4 @@ ip r | while read Def _ IP _; do
 	esac
 done
 
-ansiweather -l Astrakhan -u metric -s true -f 1 -a false | cut -d' ' -f2,8-
+ansiweather -l Astrakhan -u metric -s true -f 1 -a false | cut -d' ' -f2,7-

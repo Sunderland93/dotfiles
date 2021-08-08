@@ -1,0 +1,155 @@
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: #31363b;
+    color: white;
+    font-family: Cantarell, Noto Sans, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+#workspaces button {
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #888888;
+}
+
+#workspaces button.focused {
+    border-bottom: 3px solid #3daee9;
+    border-color: #3daee9;
+    color: white;
+    background-color: #285577;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#custom-keyboard-layout,
+#custom-weather,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 4px;
+}
+
+#custom-weather {
+    border-bottom: 3px solid #3daee9;
+}
+
+#custom-keyboard-layout {
+    border-bottom: 3px solid #3daee9;
+}
+
+#clock {
+    border-bottom: 3px solid #3daee9;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    border-bottom: 3px solid #3daee9;
+}
+
+#memory {
+    border-bottom: 3px solid #3daee9;
+}
+
+#custom-gpu-usage {
+    border-bottom: 3px solid #3daee9;
+}
+
+#network {
+    border-bottom: 3px solid #3daee9;
+}
+
+#network.disconnected {
+    border-bottom: 3px solid #3daee9;
+}
+
+#pulseaudio {
+    border-bottom: 3px solid #3daee9;
+}
+
+#pulseaudio.muted {
+    border-bottom: 3px solid #3daee9;
+}
+
+#temperature {
+    border-bottom: 3px solid #3daee9;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}

@@ -11,6 +11,7 @@ include $HOME/.config/sway/config.d/*.conf
 #
 exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec wl-paste -t text --watch clipman store --max-items 1024
 
 ### Output configuration
 #
@@ -61,6 +62,9 @@ assign [app_id="libreoffice"] workspace 5
     
     # Take a screenshot of focused window
     $bindsym $mod+Shift+Print exec $screenshot_selection_active
+
+    # Clipboard manager
+    bindsym $mod+y exec clipman pick -t wofi --max-items=30
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

@@ -3,15 +3,15 @@
 # Window borders
 default_border pixel 3
 smart_borders on
-smart_gaps on
+smart_gaps off
 gaps inner 8
 
 seat seat0 xcursor_theme "breeze_cursors"
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Breeze'
-    gsettings set $gnome-schema icon-theme 'breeze'
+    gsettings set $gnome-schema gtk-theme 'Breeze-Dark'
+    gsettings set $gnome-schema icon-theme 'breeze-dark'
     gsettings set $gnome-schema cursor-theme 'breeze_cursors'
 }
 

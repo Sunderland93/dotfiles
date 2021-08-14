@@ -1,9 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 25,
+    "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["custom/weather", "custom/keyboard-layout", "pulseaudio", "cpu", "memory", "custom/gpu-usage", "battery", "network", "clock#time", "clock#date", "tray"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/weather", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -28,6 +29,25 @@
         "exec": "~/.config/waybar/modules/kblayout",
         "format": "   {}"
     },
+    "sway/mode": {
+        "format": " {}",
+        "max-length": 50
+    },
+    "sway/window": {
+        "format": "{}",
+        "max-length": 50,
+        "tooltip": false
+    },
+    "bluetooth": {
+       "format": "{icon}",
+       "interval": 30,
+       "format-icons": {
+          "enabled": "",
+          "disabled": ""
+       },
+       "on-click": "blueman-manager",
+       "tooltip-format": "{}"
+    },
     "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-muted": "",
@@ -41,7 +61,7 @@
         "default": ["", ""]
     },
     "scroll-step": 1,
-    "on-click-right": "pavucontrol"
+    "on-click": "swaymsg exec \\$pulsemixer"
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -58,17 +78,11 @@
 	"max-length": 100,
 	"on-click": "nm-connection-editor"
     },
-    "clock#time": {
-        "interval": 1,
-        "format": "{:%H:%M}",
-        "tooltip": false,
-	"max-lenght": 25
-    },
-
-    "clock#date": {
-      "interval": 10,
-      "format": "  {:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
+    "clock": {
+        "interval": 60,
+        "format": "{:%e %b %Y | %H:%M}",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
     },
     "cpu": {
         "interval": 5,
@@ -76,20 +90,21 @@
         "states": {
           "warning": 70,
           "critical": 90
-          }
+          },
+    "on-click": "swaymsg exec kitty htop"
     },
     "memory": {
-    "interval": 30,
-    "format": "  {used:0.1f}G/{total:0.1f}G"
+        "interval": 30,
+        "format": "  {used:0.1f}G/{total:0.1f}G",
+        "states": {
+          "warning": 70,
+          "critical": 90
+        },
+    "on-click": "swaymsg exec kitty htop"
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
-    },
-    "custom/gpu-usage": {
-	"exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
-	"format": "GPU: {}%",
-	"return-type": "",
-	"interval": 1
+    }
 }
 }

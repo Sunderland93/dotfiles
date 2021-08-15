@@ -9,13 +9,13 @@
 }
 
 window {
-	border: 5px solid @highlight;
+	border: 2px solid @highlight;
 }
 
 #input {
     margin-bottom: 15px;
-    padding:3px;
-    border-radius: 5px;
+    padding:2px;
+    border-radius: 2px;
     border:none;
     color: white;
 }
@@ -26,7 +26,7 @@ window {
 }
 
 #outer-box {
-    margin: 5px;
+    margin: 2px;
     padding:15px;
     background-color: @base2;
 }

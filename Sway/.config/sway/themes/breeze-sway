@@ -1,9 +1,9 @@
 ################----------------THEMING----------------################
 
 # Window borders
-default_border pixel 3
+default_border pixel 2
 smart_borders on
-smart_gaps off
+smart_gaps on
 gaps inner 8
 
 seat seat0 xcursor_theme "breeze_cursors"
@@ -15,16 +15,7 @@ exec_always {
     gsettings set $gnome-schema cursor-theme 'breeze_cursors'
 }
 
- set $grey       #323232
- set $lightblue #3daee9
- set $white      #eff0f1
- set $bg         #31363b
- set $black      #900000
- set $red        #CB4B16
-
- # Sway theme
- # class                   border     backgr.    text    indic.     child_border
-   client.focused          $lightblue $bg        $white  $lightblue $lightblue
-   client.focused_inactive $bg        $bg        $white  $bg        $bg
-   client.unfocused        $bg        $bg        $white  $bg        $bg
-   client.urgent           $red       $red       $white  $black     $black
+ # class | border | background | text | indicator | childborder
+ client.focused #3daee9 #2d5c76 #fefefe #1abb9b #3daee9
+ client.focused_inactive #7f8b8c #313b3c #fbfbfb #7f8b8c #7f8b8c
+ client.unfocused #63686D #313b3c #bdc3c7 #63686d #63686d

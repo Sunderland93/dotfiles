@@ -21,7 +21,7 @@ output * bg ~/Изображения/Wallpapers/arizona.jpg fill
 # Default workspaces for common programms
 assign [app_id="kitty"] workspace 1
 assign [app_id="firefox"] workspace 2
-assign [app_id="pcmanfm"] workspace 3
+assign [app_id="pcmanfm-qt"] workspace 3
 assign [app_id="thunderbird"] workspace 4
 assign [class="Thunderbird"] workspace 4
 assign [class="libreoffice"] workspace 5

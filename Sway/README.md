@@ -18,7 +18,7 @@ Used applications:
 * Network Manager
 * nm-connection-editor
 * pulsemixer (command-line mixer for PulseAudio)
-* PCmanFM-Qt (file manager)
+* PCmanFM-Qt (or PCmanFM-GTK3) (file manager)
 * policykit-1-gnome (PolicyKit Authentification agent)
 * Ranger (console file manager)
 * slurp (select region for grim or wf-recorder)
@@ -50,7 +50,7 @@ wl-clipboard xdg-desktop-portal-wlr xsettingsd zathura zathura-pdf-poppler`
 *** Instalation on Arch Linux:
 
 `sudo pacman -S bc blueman-manager breeze breeze-gtk firefox ffmpegthumbnailer grim htop imv jq kitty mpv mako nm-connection-editor
-pcmanfm-qt polkit-gnome pulsemixer qt5ct ranger slurp sway tumbler waybar wf-recorder wl-clipboard xsettingsd xdg-desktop-portal-wlr
+pcmanfm-gtk3 polkit-gnome pulsemixer qt5ct ranger slurp sway tumbler waybar wf-recorder wl-clipboard xsettingsd xdg-desktop-portal-wlr
 zathura zathura-pdf-poppler`
 
 The following packages are available only in AUR:

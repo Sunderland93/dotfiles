@@ -1,0 +1,15 @@
+[calendars]
+
+[[private]]
+path = /home/sunderland93/.local/share/khal/calendars/private
+type = calendar
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
+
+[default]
+default_calendar = private

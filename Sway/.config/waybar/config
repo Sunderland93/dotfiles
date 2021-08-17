@@ -45,7 +45,7 @@
           "enabled": "",
           "disabled": ""
        },
-       "on-click": "blueman-manager",
+       "on-click": "blueberry",
        "tooltip-format": "{}"
     },
     "pulseaudio": {
@@ -82,7 +82,8 @@
         "interval": 60,
         "format": "{:%e %b %Y | %H:%M}",
         "tooltip": true,
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+        "tooltip-format": "<big>{:%e %B %Y}</big>\n<tt>{calendar}</tt>",
+        "on-click": "swaymsg exec \\$calendar"
     },
     "cpu": {
         "interval": 5,

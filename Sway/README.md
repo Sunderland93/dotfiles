@@ -1,4 +1,4 @@
-My Sway config's 
+Sway - tiling Wayland compositor inspired by i3wm
 
 ![Sway Screenshot](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot.png)
 

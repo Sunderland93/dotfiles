@@ -1,0 +1,251 @@
+[global/wm]
+margin-bottom = 0
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = true
+
+[colors]
+; Breeze theme based colors
+background = #2e3134
+foreground = #eff0f1
+
+################################################################################
+################################################################################
+############                  MAINBAR-BSPWM                         ############
+################################################################################
+################################################################################
+
+[bar/mainbar-bspwm]
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 100%
+height = 25
+border-size = 0
+line-size = 2
+line-color = #000000
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+font-0 = "Noto Sans:size=10;0"
+font-1 = "FontAwesome:size=10;0"
+font-2 = "Noto Sans:size=10;0"
+font-3 = "Noto Sans Mono:size=10;0
+
+tray-position = right
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-maximize = 25
+tray-scale = 1.0
+tray-background = ${colors.background}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 3
+module-margin-right = 3
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = weather xkeyboard cpu2 memory3 pavolume date
+
+separator = |
+
+background = ${colors.background}
+
+################################################################################
+################################################################################
+############                       MODULE BSPWM                     ############
+################################################################################
+################################################################################
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+pin-workspaces = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-default = " "
+
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = #4b4e51
+label-focused-underline= #3daee9
+label-focused-padding = 4
+label-focused-foreground = ${colors.foreground}
+
+label-occupied = %icon%
+label-occupied-padding = 3
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.foreground}
+
+label-urgent = %icon%
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-padding = 3
+label-empty-background = ${colors.background}
+label-monocle = "  "
+label-tiled = "  "
+label-fullscreen = "  "
+label-floating = "  "
+label-pseudotiled = "  "
+label-locked = "  "
+label-sticky = "  "
+label-private =  "     "
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 10
+;label-separator-foreground = #ffb52a
+
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+################################################################################
+
+[module/cpu2]
+;https://github.com/jaagr/polybar/wiki/Module:-cpu
+type = internal/cpu
+; Seconds to sleep between updates
+; Default: 1
+interval = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = #3daee9
+format-underline = #3daee9
+
+label-font = 3
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label>
+
+format-padding = 2
+
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = Cpu %percentage:3%%
+
+################################################################################
+
+[module/date]
+type = internal/date
+interval = 5
+time = %H:%M
+date = %a-%b-%d-%Y
+format-prefix = "  "
+format-prefix-foreground = "#3daee9" 
+format-underline = #3daee9
+label = %date% | %time%
+
+################################################################################
+
+[module/memory3]
+;https://github.com/jaagr/polybar/wiki/Module:-memory
+type = internal/memory
+interval = 1
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+label = %gb_used%/%gb_free%
+
+format = Mem <label>
+format-prefix = "  "
+format-prefix-foreground = #3daee9
+format-underline = #3daee9
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+
+################################################################################
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+format-underline = #3daee9
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+################################################################################
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = " "
+format-prefix-foreground = #3daee9
+format-underline = #3daee9
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+exec = python3 -u ~/.config/polybar/scripts/weather.py
+tail = true
+
+#################################################################################
+
+[module/xkeyboard]
+;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = #3daee9
+format-prefix-background = ${colors.background}
+format-prefix-underline = #3daee9
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-layout = %layout%
+label-layout-underline = #3daee9
+label-indicator-background = ${colors.background}
+label-indicator-underline = ${colors.foreground}
+
+################################################################################
+
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+################################################################################

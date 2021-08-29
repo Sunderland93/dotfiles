@@ -1,12 +1,13 @@
 #! /bin/sh
 
 ##Autostart
+pgrep -x sxhkd > /dev/null || sxhkd &
+nitrogen --restore &
 $HOME/.config/polybar/launch.sh &
+compton &
 
 #Single monitor
 bspc monitor -d 1 2 3 4 5
-
-pgrep -x sxhkd > /dev/null || sxhkd &
 
 ##Main settings
 bspc config border_width         2

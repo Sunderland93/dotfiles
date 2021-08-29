@@ -4,7 +4,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
 $HOME/.config/polybar/launch.sh &
-compton &
+picom &
 
 #Single monitor
 bspc monitor -d 1 2 3 4 5

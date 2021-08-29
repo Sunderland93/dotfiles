@@ -5,10 +5,14 @@ margin-bottom = 0
 throttle-output = 5
 throttle-output-for = 10
 screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
 
 [colors]
-; Breeze theme based colors
-background = #2e3134
+background = #31363b
 foreground = #eff0f1
 
 ################################################################################
@@ -53,7 +57,7 @@ module-margin-right = 3
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = weather xkeyboard cpu2 memory3 pavolume date
+modules-right = weather xkeyboard cpu2 memory3 pulseaudio date
 
 separator = |
 
@@ -85,7 +89,7 @@ format = <label-state> <label-mode>
 
 label-focused = %icon%
 label-focused-background = #4b4e51
-label-focused-underline= #3daee9
+label-focused-underline= #398bb6
 label-focused-padding = 4
 label-focused-foreground = ${colors.foreground}
 
@@ -125,11 +129,10 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
-format-prefix-foreground = #3daee9
-format-underline = #3daee9
+format-prefix = " "
+format-prefix-foreground = #aabec4
+format-underline = #398bb6
 
 label-font = 3
 
@@ -156,8 +159,8 @@ interval = 5
 time = %H:%M
 date = %a-%b-%d-%Y
 format-prefix = "  "
-format-prefix-foreground = "#3daee9" 
-format-underline = #3daee9
+format-prefix-foreground = #aabec4
+format-underline = #398bb6
 label = %date% | %time%
 
 ################################################################################
@@ -179,26 +182,22 @@ label = %gb_used%/%gb_free%
 
 format = Mem <label>
 format-prefix = "  "
-format-prefix-foreground = #3daee9
-format-underline = #3daee9
-format-foreground = ${colors.foreground}
+format-prefix-foreground = #aabec4
 format-background = ${colors.background}
-
+format-underline = #398bb6
 
 ################################################################################
 
-[module/pavolume]
-type = custom/script
-tail = true
-label = %output%
-exec = ~/.config/polybar/scripts/pavolume.sh --listen
-click-right = exec pavucontrol
-click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
-scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
-scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-underline = #3daee9
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+click-right = pavucontrol
+format-volume = <ramp-volume> <label-volume>
+format-volume-underline = #398bb6
+ramp-volume-foreground = #aabec4
+ramp-volume-0 = 
+ramp-volume-1 =  
+ramp-volume-2 = 
 
 ################################################################################
 
@@ -207,10 +206,9 @@ type = custom/script
 interval = 10
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #3daee9
-format-underline = #3daee9
-format-foreground = ${colors.foreground}
+format-prefix-foreground = #aabec4
 format-background = ${colors.background}
+format-underline = #398bb6
 exec = python3 -u ~/.config/polybar/scripts/weather.py
 tail = true
 
@@ -221,17 +219,11 @@ tail = true
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
-format-prefix-foreground = #3daee9
-format-prefix-background = ${colors.background}
-format-prefix-underline = #3daee9
-format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+format-underline = #398bb6
 
 label-layout = %layout%
-label-layout-underline = #3daee9
 label-indicator-background = ${colors.background}
-label-indicator-underline = ${colors.foreground}
 
 ################################################################################
 
@@ -246,6 +238,6 @@ label = %title%
 label-maxlen = 50
 
 format-background = ${colors.background}
-format-foreground = ${colors.foreground}
+format-underline = #398bb6
 
 ################################################################################

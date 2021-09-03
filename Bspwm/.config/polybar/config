@@ -55,9 +55,9 @@ padding-right = 2
 module-margin-left = 3
 module-margin-right = 3
 
-modules-left = bspwm
-modules-center = xwindow
-modules-right = weather xkeyboard cpu2 memory3 pulseaudio date
+modules-left = bspwm xwindow
+modules-center = date
+modules-right = weather xkeyboard cpu2 memory3 pulseaudio
 
 separator = |
 
@@ -78,7 +78,7 @@ reverse-scroll = true
 pin-workspaces = true
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;  
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
@@ -95,8 +95,9 @@ label-focused-foreground = ${colors.foreground}
 
 label-occupied = %icon%
 label-occupied-padding = 3
+label-occupied-margin = 1
 label-occupied-background = ${colors.background}
-label-occupied-foreground = ${colors.foreground}
+label-occupied-underline = #4b4e51
 
 label-urgent = %icon%
 label-urgent-padding = 3

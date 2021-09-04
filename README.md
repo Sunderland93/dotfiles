@@ -4,4 +4,4 @@
 
 * **Sway**
 
-![Sway Screenshot](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot.png)
+![Sway Screenshot](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot_sway2.png)

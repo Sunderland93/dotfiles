@@ -29,10 +29,10 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid #3daee9;
-    border-color: #3daee9;
+    border-bottom: 3px solid #398bb6;
+    border-color: #398bb6;
     color: white;
-    background-color: #285577;
+    background-color: #4b4e51;
 }
 
 #workspaces button.urgent {
@@ -63,15 +63,15 @@ window#waybar.hidden {
 }
 
 #custom-weather {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #custom-keyboard-layout {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #clock {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #battery {
@@ -106,35 +106,35 @@ label:focus {
 }
 
 #cpu {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #memory {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #custom-gpu-usage {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #network {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #network.disconnected {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #pulseaudio {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #pulseaudio.muted {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #temperature {
-    border-bottom: 3px solid #3daee9;
+    border-bottom: 3px solid #398bb6;
 }
 
 #temperature.critical {

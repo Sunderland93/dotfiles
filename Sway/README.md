@@ -1,6 +1,7 @@
 Sway - tiling Wayland compositor inspired by i3wm
 
 ![Sway Screenshot](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot.png)
+![Sway Screenshot 2](https://github.com/Sunderland93/dotfiles/blob/master/Sway/screenshot_sway2.png)
 
 Used applications:
 

@@ -35,6 +35,9 @@ line-color = #000000
 ; See the Messaging wiki page for more details.
 enable-ipc = true
 
+;Hide Polybar on fullscreen apps
+wm-restack = bspwm
+
 font-0 = "Noto Sans:size=10;0"
 font-1 = "FontAwesome:size=10;0"
 font-2 = "Noto Sans:size=10;0"
@@ -77,11 +80,12 @@ enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
 
-ws-icon-0 = 1;
+ws-icon-0 = 1; 
 ws-icon-1 = 2;  
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
+ws-icon-2 = 3; 
+ws-icon-3 = 4; 
+ws-icon-4 = 5; 
+ws-icon-5 = 6; 
 ws-icon-default = " "
 
 

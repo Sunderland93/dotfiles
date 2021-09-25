@@ -22,7 +22,7 @@ export ELM_ACCEL="gl"
 export MOZ_ENABLE_WAYLAND=1
 
 #Java XWayland blank screens fix
-_JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 #SDL
 #export SDL_VIDEODRIVER=wayland

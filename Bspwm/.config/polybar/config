@@ -12,8 +12,8 @@ compositing-underline = over
 compositing-border = over
 
 [colors]
-background = #31363b
-foreground = #eff0f1
+background = #263238
+foreground = #d0d3d4
 
 ################################################################################
 ################################################################################
@@ -60,7 +60,7 @@ module-margin-right = 3
 
 modules-left = bspwm xwindow
 modules-center = date
-modules-right = weather xkeyboard cpu2 memory3 pulseaudio
+modules-right = weather xkeyboard cpu2 memory3 pulseaudio powermenu
 
 separator = |
 
@@ -93,7 +93,7 @@ format = <label-state> <label-mode>
 
 label-focused = %icon%
 label-focused-background = #4b4e51
-label-focused-underline= #398bb6
+label-focused-underline= #00bcd4
 label-focused-padding = 4
 label-focused-foreground = ${colors.foreground}
 
@@ -137,7 +137,7 @@ interval = 1
 format-background = ${colors.background}
 format-prefix = " "
 format-prefix-foreground = #aabec4
-format-underline = #398bb6
+format-underline = #00bcd4
 
 label-font = 3
 
@@ -165,7 +165,7 @@ time = %H:%M
 date = %a-%b-%d-%Y
 format-prefix = "  "
 format-prefix-foreground = #aabec4
-format-underline = #398bb6
+format-underline = #00bcd4
 label = %date% | %time%
 
 ################################################################################
@@ -189,7 +189,7 @@ format = Mem <label>
 format-prefix = "  "
 format-prefix-foreground = #aabec4
 format-background = ${colors.background}
-format-underline = #398bb6
+format-underline = #00bcd4
 
 ################################################################################
 
@@ -198,7 +198,7 @@ type = internal/pulseaudio
 interval = 5
 click-right = pavucontrol
 format-volume = <ramp-volume> <label-volume>
-format-volume-underline = #398bb6
+format-volume-underline = #00bcd4
 ramp-volume-foreground = #aabec4
 ramp-volume-0 = 
 ramp-volume-1 =  
@@ -213,7 +213,7 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = #aabec4
 format-background = ${colors.background}
-format-underline = #398bb6
+format-underline = #00bcd4
 exec = python3 -u ~/.config/polybar/scripts/weather.py
 tail = true
 
@@ -225,7 +225,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-background = ${colors.background}
-format-underline = #398bb6
+format-underline = #00bcd4
 
 label-layout = %layout%
 label-indicator-background = ${colors.background}
@@ -243,6 +243,41 @@ label = %title%
 label-maxlen = 50
 
 format-background = ${colors.background}
-format-underline = #398bb6
+format-underline = #00bcd4
 
 ################################################################################
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+format-spacing = 1
+format-underline = #00bcd4
+label-open = " Session"
+label-open-foreground = #ECEFF4
+label-close = " Close"
+label-close-foreground = #EBCB8B
+label-separator = |
+label-separator-foreground = #A3BE8C
+
+
+menu-0-0 = "Reboot"
+menu-0-0-exec = menu-open-1
+menu-0-1 = "Power off"
+menu-0-1-exec = menu-open-2
+menu-0-2 = "Log out"
+menu-0-2-exec = menu-open-3
+
+
+menu-1-0 = "Reboot"
+menu-1-0-exec = systemctl reboot
+menu-1-1-exec = menu-open-0
+
+
+menu-2-0 = "Power off"
+menu-2-0-exec = systemctl poweroff
+menu-2-1-exec = menu-open-0
+
+
+menu-3-0 = "Log out"
+menu-3-0-exec = bspc quit
+menu-3-1-exec = menu-open-0

@@ -25,10 +25,10 @@ Used applications:
 
 Theme:
 
-Icons: breeze-dark
-Cursor: breeze
-GTK: Adapta-Nokto-Eta
-Kvantum: KvAdaptaDark
+* Icons: breeze-dark
+* Cursor: breeze
+* GTK: Adapta-Nokto-Eta
+* Kvantum: KvAdaptaDark
 
 *** Installation on Debian Bullseye/Ubuntu 20.04 and newer:
 

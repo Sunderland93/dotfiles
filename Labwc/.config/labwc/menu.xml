@@ -32,7 +32,7 @@
     <action name="Exit"></action>
   </item>
   <item label="Reboot">
-      <action name="Reboot"><command>systemctl reboot</action>
+      <action name="Reboot"><command>systemctl reboot</command></action>
   </item>
   <item label="Poweroff">
     <action name="Execute"><command>systemctl -i poweroff</command></action>

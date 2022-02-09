@@ -1,0 +1,18 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "modules-left": ["wlr/taskbar"],
+    "modules-right": ["clock", "tray"],
+    "wlr/taskbar": {
+    "format": "{icon} {title:.15} - {name}",
+    "icon-size": 14,
+    "tooltip-format": "{title}",
+    "on-click": "minimize-raise",
+    "on-click-middle": "close",
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%e %b %Y | %H:%M}",
+    },
+}

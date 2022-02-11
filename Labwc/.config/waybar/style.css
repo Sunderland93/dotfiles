@@ -19,9 +19,19 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#network,
+#pulseaudio,
 #tray,
 #taskbar,
 #clock,
+
+#network {
+   padding-right: 10px;
+}
+
+#pulseaudio {
+    padding-right: 10px;
+}
 
 #clock {
     padding-right: 10px;

@@ -3,16 +3,41 @@
     "position": "top",
     "height": 38,
     "modules-left": ["wlr/taskbar"],
-    "modules-right": ["clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "clock", "tray"],
     "wlr/taskbar": {
     "format": "{icon} {title:.15} - {name}",
-    "icon-size": 14,
+    "icon-size": 24,
     "tooltip-format": "{title}",
     "on-click": "minimize-raise",
     "on-click-middle": "close",
     },
     "clock": {
         "interval": 60,
-        "format": "{:%e %b %Y | %H:%M}",
+        "format": "{:       %H:%M \n %e %b %Y}",
+    },
+    "network": {
+	"interface": "enp5s0",
+	"format": "{ifname}",
+	"format-ethernet": "{ifname} ",
+	"format-disconnected": "",
+	"tooltip-format": "{ifname}",
+	"tooltip-format-ethernet": "{ifname} ",
+	"tooltip-format-disconnected": "Disconnected",
+	"max-length": 100,
+	"on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
     },
 }

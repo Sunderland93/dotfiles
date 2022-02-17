@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 38,
-    "modules-left": ["wlr/taskbar"],
+    "modules-left": ["custom/menu", "wlr/taskbar"],
     "modules-right": ["network", "pulseaudio", "clock", "tray"],
     "wlr/taskbar": {
     "format": "{icon} {title:.15} - {name}",
@@ -10,6 +10,10 @@
     "tooltip-format": "{title}",
     "on-click": "minimize-raise",
     "on-click-middle": "close",
+    },
+    "custom/menu": {
+        "format": {Menu},
+	"exec": "wofi --show drun --allow-images --allow-markup --no-actions",
     },
     "clock": {
         "interval": 60,

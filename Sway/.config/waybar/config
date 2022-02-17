@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/weather", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
+    "modules-right": ["custom/weather", "sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -25,9 +25,8 @@
 		"exec-if": "ping openweathermap.org -c1",
 		"tooltip": "false"
     },
-    "custom/keyboard-layout": {
-        "exec": "~/.config/waybar/modules/kblayout",
-        "format": "   {}"
+    "sway/language": {
+        "format": "{}",
     },
     "sway/mode": {
         "format": " {}",

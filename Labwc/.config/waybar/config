@@ -12,8 +12,10 @@
     "on-click-middle": "close",
     },
     "custom/menu": {
-        "format": {Menu},
-	"exec": "wofi --show drun --allow-images --allow-markup --no-actions",
+        "format": "{icon} Menu",
+        "format-icons": "",
+        "tooltip": "false",
+        "on-click": "wofi --show drun --allow-images --allow-markup --no-actions",
     },
     "clock": {
         "interval": 60,

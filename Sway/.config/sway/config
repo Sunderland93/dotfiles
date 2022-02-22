@@ -7,13 +7,6 @@ include themes/breeze-sway
 include /etc/sway/config.d/*
 include $HOME/.config/sway/config.d/*.conf
 
-### Autostart
-#
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec mako
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wl-paste -t text --watch clipman store --max-items 1024
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)

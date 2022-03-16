@@ -10,10 +10,10 @@ include $HOME/.config/sway/config.d/*.conf
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Изображения/Wallpapers/arizona.jpg fill
+#output * bg ~/Изображения/Wallpapers/arizona.jpg fill
 
 # Default workspaces for common programms
-assign [app_id="kitty"] workspace 1
+assign [app_id="foot"] workspace 1
 assign [app_id="firefox"] workspace 2
 assign [app_id="pcmanfm-qt"] workspace 3
 assign [app_id="thunderbird"] workspace 4

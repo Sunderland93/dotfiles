@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/weather", "sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
+    "modules-right": ["sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -17,13 +17,6 @@
         "focused": "",
         "default": ""
       }
-    },
-    "custom/weather": {
-		"format": "{}",
-		"interval": 18000,
-		"exec": "~/.config/waybar/modules/weather",
-		"exec-if": "ping openweathermap.org -c1",
-		"tooltip": "false"
     },
     "sway/language": {
         "format": "{}",
@@ -59,8 +52,7 @@
         "car": "",
         "default": ["", ""]
     },
-    "scroll-step": 1,
-    "on-click": "swaymsg exec \\$pulsemixer"
+    "scroll-step": 1
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -81,8 +73,7 @@
         "interval": 60,
         "format": "{:%e %b %Y | %H:%M}",
         "tooltip": true,
-        "tooltip-format": "<big>{:%e %B %Y}</big>\n<tt>{calendar}</tt>",
-        "on-click": "swaymsg exec \\$calendar"
+        "tooltip-format": "<big>{:%e %B %Y}</big>\n<tt>{calendar}</tt>"
     },
     "cpu": {
         "interval": 5,
@@ -90,8 +81,7 @@
         "states": {
           "warning": 70,
           "critical": 90
-          },
-    "on-click": "swaymsg exec kitty htop"
+          }
     },
     "memory": {
         "interval": 30,
@@ -100,7 +90,7 @@
           "warning": 70,
           "critical": 90
         },
-    "on-click": "swaymsg exec kitty htop"
+    "on-click": "swaymsg exec foot htop"
     },
     "tray": {
         "icon-size": 21,

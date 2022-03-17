@@ -19,11 +19,11 @@ Used applications:
 * Network Manager
 * nm-connection-editor
 * pulsemixer (command-line mixer for PulseAudio)
-* PCmanFM-Qt (or PCmanFM-GTK3) (file manager)
 * policykit-1-gnome (PolicyKit Authentification agent)
 * Ranger (console file manager)
 * slurp (select region for grim or wf-recorder)
 * Sway (Wayland window manager/compositor)
+* Thunar (file manager)
 * tumbler (D-Bus preview service)
 * Waybar (panel)
 * wf-recorder (screencasting)
@@ -45,7 +45,7 @@ For use Breeze-Sway theme you need these components on your system:
 *** Installation on Debian Bullseye/Ubuntu 20.04 and newer:
 
 `sudo apt install ansiweather bc breeze breeze-gtk-theme breeze-cursor-theme blueman clipman firefox fonts-font-awesome foot ffmpegthumbnailer
-grim htop imv jq khal mako-notifier mpv network-manager-gnome pulsemixer pcmanfm-qt policykit-1-gnome qt5ct ranger slurp sway tumbler waybar wf-recorder
+grim htop imv jq khal libglib2.0-bin mako-notifier mpv network-manager-gnome pulsemixer policykit-1-gnome qt5ct ranger slurp sway thunar tumbler waybar wf-recorder
 wl-clipboard xdg-desktop-portal-wlr xsettingsd zathura zathura-pdf-poppler`
 
 *** Instalation on Arch Linux:

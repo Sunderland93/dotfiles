@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
+    "modules-right": ["sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "custom/clock", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -34,8 +34,8 @@
        "format": "{icon}",
        "interval": 30,
        "format-icons": {
-          "enabled": "",
-          "disabled": ""
+          "enabled": "",
+          "disabled": ""
        },
        "on-click": "blueberry",
        "tooltip-format": "{}"
@@ -59,21 +59,15 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-	"interface": "enp2s0",
-	"format": "{ifname}",
 	"format-ethernet": "{ifname} ",
 	"format-disconnected": "",
-	"tooltip-format": "{ifname}",
-	"tooltip-format-ethernet": "{ifname} ",
-	"tooltip-format-disconnected": "Disconnected",
+	"tooltip-format": "{ifname} ({essid}): {ipaddr}",
 	"max-length": 100,
 	"on-click": "nm-connection-editor"
     },
-    "clock": {
-        "interval": 60,
-        "format": "{:%e %b %Y | %H:%M}",
-        "tooltip": true,
-        "tooltip-format": "<big>{:%e %B %Y}</big>\n<tt>{calendar}</tt>"
+    "custom/clock": {
+        "exec": "echo '  '$(date +'%H:%M | %e %b %Y')'  '",
+        "interval": 5
     },
     "cpu": {
         "interval": 5,

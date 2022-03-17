@@ -46,9 +46,11 @@ window#waybar.hidden {
 }
 
 #custom-keyboard-layout,
-#clock,
+#custom-clock,
 #battery,
+#bluetooth,
 #cpu,
+#language,
 #memory,
 #temperature,
 #network,
@@ -65,7 +67,7 @@ window#waybar.hidden {
     border-bottom: 3px solid #398bb6;
 }
 
-#clock {
+#custom-clock {
     border-bottom: 3px solid #398bb6;
 }
 
@@ -77,6 +79,10 @@ window#waybar.hidden {
 #battery.charging {
     color: #ffffff;
     background-color: #26A65B;
+}
+
+#bluetooth {
+    border-bottom: 3px solid #398bb6;
 }
 
 @keyframes blink {
@@ -101,6 +107,10 @@ label:focus {
 }
 
 #cpu {
+    border-bottom: 3px solid #398bb6;
+}
+
+#language {
     border-bottom: 3px solid #398bb6;
 }
 

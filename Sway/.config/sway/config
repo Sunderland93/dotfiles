@@ -10,12 +10,12 @@ include $HOME/.config/sway/config.d/*.conf
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg ~/Изображения/Wallpapers/arizona.jpg fill
+output * bg ~/Pictures/Road.jpg fill
 
 # Default workspaces for common programms
 assign [app_id="foot"] workspace 1
 assign [app_id="firefox"] workspace 2
-assign [app_id="pcmanfm-qt"] workspace 3
+assign [app_id="thunar"] workspace 3
 assign [app_id="thunderbird"] workspace 4
 assign [class="Thunderbird"] workspace 4
 assign [class="libreoffice"] workspace 5
@@ -43,7 +43,7 @@ assign [app_id="libreoffice"] workspace 5
     $bindsym  $mod+d exec $menu
 
     # Start file manager
-    $bindsym  $mod+p exec $filer
+    $bindsym  $mod+t exec $filer
 
     # Start Firefox
     $bindsym $mod+m exec firefox

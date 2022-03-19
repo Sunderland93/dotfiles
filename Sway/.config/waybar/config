@@ -1,17 +1,17 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 28,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/language", "cpu", "memory", "battery", "network", "bluetooth", "pulseaudio", "custom/clock", "tray"],
+    "modules-right": ["sway/language", "cpu", "memory", "disk", "battery", "network", "bluetooth", "pulseaudio", "custom/clock", "tray"],
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{name}: {icon}",
     "format-icons": {
         "1": "",
-        "2": "",
+        "2": "",
         "3": "",
         "urgent": "",
         "focused": "",
@@ -19,7 +19,7 @@
       }
     },
     "sway/language": {
-        "format": "{}",
+        "format": " {}",
     },
     "sway/mode": {
         "format": " {}",
@@ -37,7 +37,7 @@
           "enabled": "",
           "disabled": ""
        },
-       "on-click": "blueberry",
+       "on-click": "blueman-manager",
        "tooltip-format": "{}"
     },
     "pulseaudio": {
@@ -45,11 +45,6 @@
     "format-muted": "",
     "format-icons": {
         "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
         "default": ["", ""]
     },
     "scroll-step": 1
@@ -59,7 +54,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-	"format-ethernet": "{ifname} ",
+	"format-ethernet": " eth: {ifname}",
 	"format-disconnected": "",
 	"tooltip-format": "{ifname} ({essid}): {ipaddr}",
 	"max-length": 100,
@@ -71,7 +66,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
+        "format": " cpu: {usage}% ({load})", // Icon: microchip
         "states": {
           "warning": 70,
           "critical": 90
@@ -79,12 +74,17 @@
     },
     "memory": {
         "interval": 30,
-        "format": "  {used:0.1f}G/{total:0.1f}G",
+        "format": " mem: {used:0.1f}G/{total:0.1f}G",
         "states": {
           "warning": 70,
           "critical": 90
         },
     "on-click": "swaymsg exec foot htop"
+    },
+    "disk": {
+        "interval": 30,
+        "format": " hdd: {free} Free",
+        "path": "/"
     },
     "tray": {
         "icon-size": 21,

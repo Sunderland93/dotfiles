@@ -50,6 +50,7 @@ window#waybar.hidden {
 #battery,
 #bluetooth,
 #cpu,
+#disk,
 #language,
 #memory,
 #temperature,
@@ -107,6 +108,10 @@ label:focus {
 }
 
 #cpu {
+    border-bottom: 3px solid #398bb6;
+}
+
+#disk {
     border-bottom: 3px solid #398bb6;
 }
 

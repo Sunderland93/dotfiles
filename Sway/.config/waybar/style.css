@@ -37,6 +37,11 @@
     font-size: 14px;
 }
 
+#window {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 window#waybar.hidden {
     opacity: 0.2;
 }

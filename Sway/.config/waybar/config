@@ -75,7 +75,9 @@
        },
        "tooltip-format": "{icon} {volume}% {format_source}",
        "on-click": "swaymsg exec \\$pulseaudio",
-       "on-click-right": "pavucontrol-qt"
+       "on-click-right": "pavucontrol-qt",
+       "on-scroll-up": "swaymsg exec \\$volume_up",
+       "on-scroll-down": "swaymsg exec \\$volume_down"
     },
     
     "battery": {

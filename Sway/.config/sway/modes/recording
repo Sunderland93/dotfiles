@@ -1,6 +1,10 @@
+set $mode_recording "<span foreground='#e6cd69'></span>  \
+<span foreground='#d6d6d6'><b>Record</b></span> <span foreground='#e6cd69'>(<b>r</b>)</span> \
+<span foreground='#d6d6d6'>+ [<span foreground='#e6cd69'><b>Shift</b></span> for ]</span>"
+
 set $recorder $HOME/.config/sway/scripts/recorder.sh
 
-mode "recording" {
+mode --pango_markup $mode_recording {
         $bindsym r exec $recorder, mode "default"
         $bindsym Shift+r exec $recorder -a, mode "default"
 
@@ -9,7 +13,7 @@ mode "recording" {
 }
 
 ## Launch // Recording Mode ##
-$bindsym $mod+Shift+r mode "recording"
+$bindsym $mod+Shift+r mode $mode_recording
 
 ## Launch // Stop Recording Mode ##
 $bindsym $mod+Escape exec killall -s SIGINT wf-recorder

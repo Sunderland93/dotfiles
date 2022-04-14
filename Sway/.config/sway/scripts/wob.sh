@@ -20,7 +20,7 @@ wob_pipe=~/.cache/$( basename $SWAYSOCK ).wob
 
 # wob does not appear in $(swaymsg -t get_msg), so:
 is_running_on_this_screen wob || {
-    tail -f $wob_pipe | wob &
+    tail -f $wob_pipe | wob -m 150&
 }
 
 [[ "$new_value" ]] && echo $new_value > $wob_pipe

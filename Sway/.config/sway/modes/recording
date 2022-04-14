@@ -1,0 +1,15 @@
+set $recorder $HOME/.config/sway/scripts/recorder.sh
+
+mode "recording" {
+        $bindsym r exec $recorder, mode "default"
+        $bindsym Shift+r exec $recorder -a, mode "default"
+
+        # Return to default mode.
+        $bindsym Escape mode "default"
+}
+
+## Launch // Recording Mode ##
+$bindsym $mod+Shift+r mode "recording"
+
+## Launch // Stop Recording Mode ##
+$bindsym $mod+Escape exec killall -s SIGINT wf-recorder

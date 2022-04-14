@@ -19,12 +19,44 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#battery,
+#bluetooth,
 #custom-menu,
 #network,
 #pulseaudio,
 #tray,
 #taskbar,
 #clock,
+
+#battery {
+    padding-right: 5px;
+}
+
+#battery.charging {
+    padding-right: 5px;
+}
+
+#bluetooth {
+    padding-right: 5px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    padding-right: 5px;
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
 #custom-menu {
    padding-left: 10px;

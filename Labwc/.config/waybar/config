@@ -3,47 +3,63 @@
     "position": "top",
     "height": 38,
     "modules-left": ["custom/menu", "wlr/taskbar"],
-    "modules-right": ["network", "pulseaudio", "clock", "tray"],
+    "modules-right": ["battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
+    
     "wlr/taskbar": {
-    "format": "{icon} {title:.15} - {name}",
-    "icon-size": 24,
-    "tooltip-format": "{title}",
-    "on-click": "minimize-raise",
-    "on-click-middle": "close",
+        "format": "{icon} {title:.15} - {name}",
+        "icon-size": 24,
+        "tooltip-format": "{title}",
+        "on-click": "minimize-raise",
+        "on-click-middle": "close",
     },
+    
     "custom/menu": {
         "format": "{icon} Menu",
         "format-icons": "",
         "tooltip": "false",
         "on-click": "wofi --show drun --allow-images --allow-markup --no-actions",
     },
+    
     "clock": {
         "interval": 60,
         "format": "{:       %H:%M \n %e %b %Y}",
     },
+    
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    
     "network": {
-	"interface": "enp5s0",
-	"format": "{ifname}",
-	"format-ethernet": "{ifname} ",
-	"format-disconnected": "",
-	"tooltip-format": "{ifname}",
-	"tooltip-format-ethernet": "{ifname} ",
-	"tooltip-format-disconnected": "Disconnected",
-	"max-length": 100,
-	"on-click": "nm-connection-editor"
+        "format-wifi": " ",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname} ({essid}): {ipaddr}",
+        "on-click": "nm-connection-editor"
     },
+    
+    "bluetooth": {
+       "format": "{icon}",
+       "interval": 30,
+       "format-icons": {
+          "enabled": "",
+          "disabled": ""
+       },
+       "on-click": "blueman-manager",
+       "tooltip-format": "{}"
+    },
+    
     "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", ""]
-    },
-    "scroll-step": 1,
+        "format": "{icon} {volume}%{format_source}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+           "headphone": "",
+           "default": ["", "", ""]
+        },
+       "tooltip-format": "{icon} {volume}% {format_source}",
+       "on-click-right": "pavucontrol-qt"
     },
 }

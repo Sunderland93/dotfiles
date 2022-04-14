@@ -2,9 +2,10 @@
     "layer": "top",
     "position": "top",
     "height": 28,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["sway/language", "cpu", "memory", "disk", "battery", "network", "bluetooth", "pulseaudio", "custom/clock", "tray"],
+    "modules-left": ["custom/menu", "sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": ["custom/weather"],
+    "modules-right": ["sway/language", "cpu", "memory", "battery", "network", "bluetooth", "custom/playerctl", "pulseaudio", "custom/clock", "tray"],
+    
     "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -18,18 +19,25 @@
         "default": ""
       }
     },
+    
     "sway/language": {
         "format": " {}",
+        "min-length": 5,
+        "tooltip": false,
+        "on-click": "swaymsg input $(swaymsg -t get_inputs --raw | jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next"
     },
+    
     "sway/mode": {
-        "format": " {}",
-        "max-length": 50
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false
     },
+    
     "sway/window": {
         "format": "{}",
         "max-length": 50,
         "tooltip": false
     },
+    
     "bluetooth": {
        "format": "{icon}",
        "interval": 30,
@@ -40,55 +48,120 @@
        "on-click": "blueman-manager",
        "tooltip-format": "{}"
     },
+    
     "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "{icon} {volume}%{format_source}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
     "format-icons": {
         "headphone": "",
-        "default": ["", ""]
+        "default": ["", "", ""]
     },
-    "scroll-step": 1
+    "tooltip-format": "{icon} {volume}% {format_source}",
+    "on-click": "swaymsg exec \\$pulseaudio",
+    "on-click-right": "pavucontrol-qt"
     },
+    
     "battery": {
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "network": {
-	"format-ethernet": " eth: {ifname}",
-	"format-disconnected": "",
-	"tooltip-format": "{ifname} ({essid}): {ipaddr}",
-	"max-length": 100,
-	"on-click": "nm-connection-editor"
+    
+    "custom/playerctl": {
+    "interval": "once",
+    "tooltip": true,
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+         "Playing": "▶",
+         "Paused": "⏸"
     },
+    "exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
+    "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
+    "on-click-right": "playerctl next; pkill -RTMIN+5 waybar",
+    "on-scroll-up": "playerctl position 10+; pkill -RTMIN+5 waybar",
+    "on-scroll-down": "playerctl position 10-; pkill -RTMIN+5 waybar",
+    "signal": 5
+    
+    },
+    
+    "custom/menu": {
+    "format": "",
+    "on-click": "swaymsg exec \\$menu",
+    "tooltip": false,
+    
+    },
+    
+    "network": {
+    "format-wifi": " ",
+	"format-ethernet": "",
+	"format-disconnected": "",
+	"tooltip-format": "{ifname} ({essid}): {ipaddr}",
+	"on-click": "nm-connection-editor"
+	
+    },
+    
     "custom/clock": {
         "exec": "echo '  '$(date +'%H:%M | %e %b %Y')'  '",
-        "interval": 5
+        "interval": 5,
+        "on-click": "swaymsg exec \\$calendar"
     },
+    
     "cpu": {
         "interval": 5,
-        "format": " cpu: {usage}% ({load})", // Icon: microchip
+        "format": " {usage}%",
         "states": {
           "warning": 70,
           "critical": 90
-          }
+          },
+    "on-click": "swaymsg exec \\$term_float htop"
     },
+    
     "memory": {
         "interval": 30,
-        "format": " mem: {used:0.1f}G/{total:0.1f}G",
+        "format": " {}%",
         "states": {
           "warning": 70,
           "critical": 90
         },
-    "on-click": "swaymsg exec foot htop"
+    "on-click": "swaymsg exec \\$term_float htop"
+    
     },
-    "disk": {
-        "interval": 30,
-        "format": " hdd: {free} Free",
-        "path": "/"
+    
+    "custom/weather": {
+        "icon-size": 42,
+        "format": "{icon} {}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/.config/sway/scripts/weather.py",
+        "return-type": "json",
+        "format-icons": {
+           "Unknown": "✨",
+           "Cloudy": "",
+           "Fog": "🌫",
+           "HeavyRain": "🌧",
+           "HeavyShowers": "🌧",
+           "HeavySnow": "❄️",
+           "HeavySnowShowers": "❄️",
+           "LightRain": "🌦",
+           "LightShowers": "🌦",
+           "LightSleet": "🌧",
+           "LightSleetShowers": "🌧",
+           "LightSnow": "🌨",
+           "LightSnowShowers": "🌨",
+           "PartlyCloudy": "⛅️",
+           "Sunny": "☀️",
+           "ThunderyHeavyRain": "🌩",
+           "ThunderyShowers": "⛈",
+           "ThunderySnowShowers": "⛈",
+           "VeryCloudy": ""
+        }
     },
+    
     "tray": {
         "icon-size": 21,
         "spacing": 10
     }
-}
 }

@@ -47,6 +47,8 @@ window#waybar.hidden {
 
 #custom-keyboard-layout,
 #custom-clock,
+#custom-menu,
+#custom-playerctl,
 #battery,
 #bluetooth,
 #cpu,
@@ -69,6 +71,14 @@ window#waybar.hidden {
 }
 
 #custom-clock {
+    border-bottom: 3px solid #398bb6;
+}
+
+#custom-menu {
+    padding-right: 10px;
+}
+
+#custom-playerctl {
     border-bottom: 3px solid #398bb6;
 }
 

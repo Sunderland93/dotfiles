@@ -48,16 +48,16 @@
         -b 'Poweroff' 'systemctl poweroff'
         
     # Media keys
-    bindsym --locked XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && $onscreen_bar $(pulsemixer --get-volume)
-    bindsym --locked XF86AudioLowerVolume exec pulsemixer --change-volume -5 && $onscreen_bar $(pulsemixer --get-volume)
-    bindsym --locked XF86AudioMute exec pulsemixer --toggle-mute
-    bindsym --locked XF86AudioPlay exec playerctl play-pause
-    bindsym --locked XF86AudioNext exec playerctl next
-    bindsym --locked XF86AudioPrev exec playerctl previous
+    $bindsym --locked XF86AudioRaiseVolume exec $volume_up && $onscreen_bar $(pulsemixer --get-volume)
+    $bindsym --locked XF86AudioLowerVolume exec $volume_down && $onscreen_bar $(pulsemixer --get-volume)
+    $bindsym --locked XF86AudioMute exec $volume_mute $onscreen_bar $(pulsemixer --get-volume)
+    $bindsym --locked XF86AudioPlay exec playerctl play-pause
+    $bindsym --locked XF86AudioNext exec playerctl next
+    $bindsym --locked XF86AudioPrev exec playerctl previous
     
     # Brightness control
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    $bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && $onscreen_bar $(brightnessctl get)
+    $bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && $onscreen_bar $(brightnessctl get)
 
 #
 # Moving around:

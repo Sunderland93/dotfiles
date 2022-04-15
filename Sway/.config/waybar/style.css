@@ -71,9 +71,7 @@ window#waybar.hidden {
 
 #custom-clock,
 #custom-menu,
-#custom-playerctl,
 #battery,
-#bluetooth,
 #cpu,
 #language,
 #memory,
@@ -96,10 +94,6 @@ window#waybar.hidden {
     padding-left: 10px;
     padding-right: 10px;
     background-color: @theme_selected_bg_color;
-}
-
-#custom-playerctl {
-    border-bottom: 3px solid @theme_selected_bg_color;
 }
 
 #battery {
@@ -125,10 +119,6 @@ window#waybar.hidden {
 #battery.critical.discharging {
     animation-name: blink-critical;
     animation-duration: 2s;
-}
-
-#bluetooth {
-    border-bottom: 3px solid @theme_selected_bg_color;
 }
 
 label:focus {

@@ -34,7 +34,7 @@
     background: @theme_bg_color;
     color: @wm_icon_bg;
     font-family: Cantarell, Noto Sans, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #window {
@@ -71,6 +71,7 @@ window#waybar.hidden {
 
 #custom-clock,
 #custom-menu,
+#custom-playerctl,
 #battery,
 #cpu,
 #language,
@@ -94,6 +95,10 @@ window#waybar.hidden {
     padding-left: 10px;
     padding-right: 10px;
     background-color: @theme_selected_bg_color;
+}
+
+#custom-playerctl {
+    border-bottom: 3px solid @theme_selected_bg_color;
 }
 
 #battery {

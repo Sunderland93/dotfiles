@@ -27,7 +27,7 @@
     $bindsym $mod+Shift+Print exec $screenshot_selection_active
 
     # Clipboard manager
-    bindsym $mod+y exec clipman pick -t wofi --max-items=30
+    $bindsym $mod+y exec $clipboard
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

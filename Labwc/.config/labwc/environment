@@ -14,6 +14,7 @@ MOZ_ENABLE_WAYLAND=1
 
 # Force Qt5 apps to use Wayland
 QT_QPA_PLATFORM=wayland
+QT_QPA_PLATFORMTHEME=qt5ct
 
 # Force EFL apps to use Wayland
 ECORE_EVAS_ENGINE="wayland_egl"

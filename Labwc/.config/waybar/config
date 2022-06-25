@@ -22,7 +22,7 @@
     
     "clock": {
         "interval": 60,
-        "format": "{:       %H:%M \n %e %b %Y}",
+        "format": "{:%e %b %H:%M}",
     },
     
     "battery": {
@@ -62,4 +62,9 @@
        "tooltip-format": "{icon} {volume}% {format_source}",
        "on-click-right": "pavucontrol-qt"
     },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
 }

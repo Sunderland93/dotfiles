@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "height": 38,
     "modules-left": ["custom/menu", "wlr/taskbar"],
     "modules-right": ["battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],

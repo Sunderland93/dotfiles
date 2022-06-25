@@ -1,1 +1,8 @@
- 
+# Polkit Agent
+lxpolkit > /dev/null 2>&1 &
+
+# Notification daemon
+mako > /dev/null 2>&1 &
+
+# Panel
+waybar > /dev/null 2>&1 &
